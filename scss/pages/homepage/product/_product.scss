@@ -1,0 +1,107 @@
+/* PRODUCT */
+
+.product {
+	width: 100%;
+	max-width: 1780px;
+	margin: 0 auto;
+	padding-top: 155px;
+	overflow: hidden;
+
+	&-list {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	&-item {
+		width: percentage(420, 1780);
+		position: relative;
+		margin-bottom: 155px;
+
+	&:hover {
+			box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.3);
+			-webkit-box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.3);
+			-moz-box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.3);
+			margin-bottom: 60px;
+		}
+	}
+
+	&-link {
+		display: block;
+		position: relative;
+		overflow: hidden;
+
+		&::before {
+			@include response(500, 420);
+		}
+	}
+
+	&-price {
+		position: absolute;
+		top: 20px;
+		left: 20px;
+		font-size: rem(21);
+		color: $grey04;
+		font-weight: $light;
+		z-index: 4;
+
+		&-span {
+			font-size: rem(13);
+			vertical-align: top;
+		}
+	}
+
+	&-image {
+		display: block;
+		width: 100%;
+
+		&-wrapper {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 3;
+		}
+	}
+
+	&-content {
+		padding: 20px percentage(50, 420);
+		text-align: center;
+		transform: translateY(100%);
+		transition: all 0.5s linear;
+		opacity: 0;
+		position: absolute;
+		bottom: 100%;
+		left: 0;
+
+		&:hover,
+		.product-link:hover ~ & {
+			transform: translateY(0);
+			opacity: 1;
+			position: relative;
+			bottom: 0;
+		}
+	}
+
+	&-title {
+		font-family: $font_main;
+		color: $grey02;
+		font-size: rem(13);
+		text-transform: uppercase;
+		line-height: 1.5;
+		margin-bottom: 10px;
+
+		&-span {
+			font-size: rem(8);
+			vertical-align: top;
+		}
+	}
+
+	&-description {
+		font-family: $font_main;
+		color: $grey03;
+		font-size: rem(18);
+		font-weight: $light;
+		line-height: 1.5;
+	}
+}
+

@@ -1,0 +1,31 @@
+/* BANNER */
+
+.banner {
+	position: relative;
+	overflow: hidden;
+
+	&::before {
+		@include response(910, 2050);
+	}
+
+	&-image {
+		display: block;
+		width: 100%;
+
+		&-wrapper {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+		}
+	}
+
+	&-submit {
+		@include submit;
+
+		position: absolute;
+		bottom: percentage(120, 910);
+		right: percentage(330, 2050);
+	}
+}
+

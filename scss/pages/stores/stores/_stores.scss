@@ -1,0 +1,50 @@
+/* STORES */
+
+.stores {
+	@include horizontal;
+	
+	padding: 60px 0;
+
+	&-list {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	&-item {
+		width: percentage(360, 1170);
+	}
+
+	&-title {
+		color: $broun01;
+		font-size: rem(18);
+		font-family: $font_main;
+		text-transform: uppercase;
+		font-weight: normal;
+		margin-bottom: 30px;
+	}
+
+	&-subtitle {
+		display: inline-block;
+		color: $grey02;
+		font-size: rem(13);
+		font-family: $font_main;
+		font-weight: normal;
+		margin-bottom: 20px;
+	}
+
+	&-description {
+		color: $grey03;
+		font-size: rem(15);
+		font-family: $font_second;
+		line-height: 1.5;
+		margin-bottom: 30px;
+	}
+
+	&-submit {
+		@include submit;
+
+		display: inline-block;
+	}
+}
+

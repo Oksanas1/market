@@ -1,0 +1,159 @@
+/* FOOTER */
+
+.footer {
+	background: $white02;
+
+	&-inner {
+		@include horizontal;
+
+		padding: 65px 0 55px;
+	}
+
+	&-content {
+		display: flex;
+		margin-bottom: 50px;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	&-section {
+		padding-bottom: 10px;
+
+		&.contacts {
+			max-width: 235px;
+		}
+	}
+
+	&-title {
+		font-family: $font_main;
+		font-size: rem(13);
+		color: $broun01;
+		font-weight: normal;
+		text-transform: uppercase;
+		margin-bottom: 30px;
+	}
+
+	&-item {
+		& + & {
+			margin-top: 10px;
+		}
+	}
+
+	&-link {
+		@include hover( $grey02);
+		
+		font-family: $font_main;
+		font-size: rem(14);
+		color: $grey02;
+		font-weight: $light;
+		line-height: 1.5;
+	}
+
+	&-address {
+		font-weight: $light;
+		margin-bottom: 25px;
+	}
+
+	&-contact {
+		font-weight: $light;
+		
+		& + & {
+			margin-top: 10px;
+		}
+	}
+
+	&-publick {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&-banner {
+		width: percentage(570, 1170);
+		position: relative;
+		overflow: hidden;
+
+		&::before {
+			@include response(200, 570);
+		}
+	}
+
+	.socials {
+		background: $green01;
+
+		&-list {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		&-item {
+			& + .socials-item {
+				margin-left: 50px;
+			}
+		}
+
+		&-link {
+			&:before {
+				font-size: rem(35);
+			}
+		}
+	}
+}
+
+.award {
+	background: $broun02;
+
+	&-link {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+		transform: translateY(-50%);
+	}
+
+	&-title {
+		font-family: $font_main;
+		font-size: rem(36);
+		text-align: center;
+		color: $white01;
+	}
+
+	&-span {
+		display: block;
+		font-weight: normal;
+	}
+}
+
+.copyright {
+	background: $broun02;
+
+	&-inner {
+		@include clearfix;
+		@include horizontal;
+
+		padding: 15px 0;
+	}
+	
+	&-description {
+		float: left;
+		font-family: $font_main;
+		font-size: rem(13);
+		color: $grey06;
+	}
+
+	&-items {
+		float: right;
+	}
+
+	&-link {
+		font-family: $font_main;
+		font-size: rem(13);
+		color: $grey05;
+
+		& + & {
+			margin-left: 30px;
+		}
+	}
+}
+

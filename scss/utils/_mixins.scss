@@ -1,0 +1,162 @@
+// BUTON
+@mixin submit($color: $green01, $size: rem(16)) {
+	border: 2px solid $grey02;
+	padding: 20px 30px;
+	color: $black03;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-weight: bold;
+	font-size: $size;
+
+	&:hover {
+		background: $color;
+		border-color: transparent;
+		color: $white02;
+	}
+}
+
+// HOVER
+@mixin hover($color: $black02) {
+	position: relative;
+
+	&:hover::before {
+		content: "";
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		border-bottom: 1px solid $color;
+	}
+}
+
+// CLEAR FIX
+@mixin clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+		width: 100%;
+	}
+}
+
+// HORIZONTAL STRETCHING OF BLOCK
+@mixin justify {
+	text-align: justify;
+  
+	&::after {
+		content: "";
+		display: inline-block;
+		width: 100%;
+	}
+}
+
+// PIXEL TO REM
+@function rem($value) {
+	@return ($value / $size + rem);
+}
+
+// PERCENTAGE
+@function percentage($current, $parent: $site-width) {
+	@return ($current / $parent * 100%);
+}
+
+// HORIZONTAL CENTER BOX
+@mixin horizontal($max-width: $site-width, $width: 100%, $margin: 0 auto) {
+	width: $width;
+	max-width: $max-width + px;
+	margin: $margin;
+}
+
+// DISPLAY INLINE-BLOCK
+@mixin inline-block {
+	display: inline-block;
+	vertical-align: top;
+}
+
+// ABSOLUTE TOP
+@mixin absolute($top: 0, $left: 0, $right: 0, $position: absolute) {
+	position: $position;
+	top: $top;
+	left: $left;
+	right: $right;
+}
+
+// RESPONSE BOX
+@mixin response($current, $parent: $site-width) {
+	content: "";
+	display: block;
+	padding-bottom: $current / $parent * 100%;
+}
+
+// RESPONSE
+
+$mobile: 320;
+$mobile_horizontal: 460;
+$tablet: 768;
+$desktop: 1024;
+$desktop_large: 1440;
+
+
+@mixin respond_to($device) {
+	@if($device==mobile) {
+		@media(min-width: $mobile + px) and (max-width: $tablet - 1 + px) {
+			@content;
+		}
+	}
+
+	@else if($device==tablet) {
+		@media (min-width: $tablet + px) and (max-width: $desktop - 1 + px) {
+			@content;
+		}
+	}
+
+	@else if($device==desktop) {
+		@media(min-width: $desktop) {
+			@content;
+		}
+	}
+
+	@else if($device==desktop_small) {
+		@media (min-width: $desktop + px) and (max-width: $desktop_large - 1 + px) {
+			@content;
+		}
+	}
+
+	@else if($device==desktop_large) {
+		@media(min-width: $desktop) {
+			@content;
+		}
+	}
+
+	@else if($device==to_desktop) {
+		@media(min-width: $mobile + px) and (max-width: $desktop - 1 + px) {
+			@content;
+		}
+	}
+
+	@else if($device==from_tablet) {
+		@media(min-width: $tablet + px) {
+			@content;
+		}
+	}
+
+	@else if($device==to_tablet) {
+		@media(max-width: $tablet + px) {
+			@content;
+		}
+	}
+
+	@else if($device==mobile_to_tablet) {
+		@media(max-width: $tablet - 1 + px) {
+			@content;
+		}
+	}
+
+
+	@else if($device==mobile_horizontal) {
+		@media(min-width: $mobile + px) and (max-width: $mobile_horizontal + px) {
+			@content;
+		}
+	}
+}
+

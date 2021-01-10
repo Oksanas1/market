@@ -1,0 +1,47 @@
+body {
+	font-family: $font_main;
+	font-size: rem(13);
+	color: $broun01;
+}
+
+.checkbox {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+}
+
+.error {
+	background: $red02;
+	border: 1px solid $red01;
+}
+
+.socials {
+
+	&-list {
+		display: flex;
+	}
+
+	&-link {
+		display: block;
+		color: $white01;
+
+		&.facebook {
+			@include icon(FB_icon);
+		}
+
+		&.twitter {
+			@include icon(twitter_icon);
+		}
+
+		&.instagram {
+			@include icon(instagram-icon);
+		}
+
+		&.pinterest {
+			@include icon(pinterest);
+		}
+	}
+}
+

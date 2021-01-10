@@ -1,0 +1,117 @@
+@font-face {
+  font-family: "icons";
+  src: url('../fonts/icons/icons.eot');
+  src: url('../fonts/icons/icons.eot?#iefix') format('eot'),
+  url('../fonts/icons/icons.woff2') format('woff2'),
+  url('../fonts/icons/icons.woff') format('woff'),
+  url('../fonts/icons/icons.ttf') format('truetype'),
+  url('../fonts/icons/icons.svg#icons') format('svg');
+}
+
+@mixin icon-styles {
+  font-family: "icons";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  speak: none;
+  text-decoration: none;
+  text-transform: none;
+  font-size: 32px;
+}
+
+%icon {
+  @include icon-styles;
+}
+
+@function icon-char($filename) {
+  $char: "";
+
+  @if $filename == clock {
+  $char: "\E001";
+}
+  @if $filename == FB_icon {
+  $char: "\E002";
+}
+  @if $filename == instagram-icon {
+  $char: "\E003";
+}
+  @if $filename == link-symbol {
+  $char: "\E004";
+}
+  @if $filename == map {
+  $char: "\E005";
+}
+  @if $filename == new-email {
+  $char: "\E006";
+}
+  @if $filename == passion_heart {
+  $char: "\E007";
+}
+  @if $filename == pinterest {
+  $char: "\E008";
+}
+  @if $filename == search_icon {
+  $char: "\E009";
+}
+  @if $filename == shopping-cart {
+  $char: "\E00A";
+}
+  @if $filename == telephone-handle {
+  $char: "\E00B";
+}
+  @if $filename == twitter_icon {
+  $char: "\E00C";
+}
+
+@return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+&:#{$insert} {
+  @if $extend {
+    @extend %icon;
+  } @else {
+    @include icon-styles;
+  }
+  content: icon-char($filename);
+}
+}
+
+.icon-clock {
+  @include icon(clock);
+}
+.icon-FB_icon {
+  @include icon(FB_icon);
+}
+.icon-instagram-icon {
+  @include icon(instagram-icon);
+}
+.icon-link-symbol {
+  @include icon(link-symbol);
+}
+.icon-map {
+  @include icon(map);
+}
+.icon-new-email {
+  @include icon(new-email);
+}
+.icon-passion_heart {
+  @include icon(passion_heart);
+}
+.icon-pinterest {
+  @include icon(pinterest);
+}
+.icon-search_icon {
+  @include icon(search_icon);
+}
+.icon-shopping-cart {
+  @include icon(shopping-cart);
+}
+.icon-telephone-handle {
+  @include icon(telephone-handle);
+}
+.icon-twitter_icon {
+  @include icon(twitter_icon);
+}

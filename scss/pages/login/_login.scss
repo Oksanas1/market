@@ -1,0 +1,79 @@
+/* LOGIN */
+
+.login {
+	@include horizontal;
+
+	padding: 100px 0 80px;
+	display: flex;
+
+	&-form {
+		width: 50%;
+		border-right: 1px solid $grey07;
+		padding-right: 35px;
+
+		&:last-of-type {
+			border-right: none;
+			padding-right: 0;
+		}
+
+		& + & {
+			padding-left: 35px;
+		}
+	}
+
+	&-input {
+		width: 100%;
+		border: 1px solid $grey07;
+		line-height: 38px;
+		font-size: rem(15);
+		color: $grey01;
+		padding: 0 10px;
+
+		&::placeholder {
+			font-family: $font_main;
+			font-size: rem(15);
+		}
+
+		& + & {
+			margin-top: 35px;
+		}
+	}
+
+	&-button {
+		margin-top: 30px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&-submit {
+		@include submit;
+	}
+
+	&-forgot {
+		color: $green01;
+		font-size: rem(15);
+		font-family: $font_second;
+	}
+
+	&-labels {
+		margin: 35px 0 30px;
+		display: flex;
+		align-items: center;
+	}
+
+	&-checkbox {
+		width: 25px;
+		height: 25px;
+		border: 1px solid $grey07;
+	}
+
+	&-label {
+		font-size: rem(15);
+		color: $grey01;
+		padding: 0 10px;
+		font-family: $font_second;
+		line-height: 25px;
+	}
+}
+
